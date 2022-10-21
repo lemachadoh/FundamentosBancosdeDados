@@ -1,0 +1,47 @@
+1- Todos os dados dos clientes que preferem pizza vegetariana
+	s CLIENTES.preferencias = 'vegetariana'(CLIENTES)
+
+2- Todos os dados dos clientes que moram no bairro agronomia 
+	s CLIENTES.bairro = 'agronomia'(CLIENTES)
+
+3 - Todos os dados dos clientes maiores de 18 anos 
+	s CLIENTES.idade > 18(CLIENTES)
+
+4- Todos os dados dos clientes maiores de 18 e que gostam de pizza apimentada 
+	s CLIENTES.idade > 18 ? CLIENTES.preferencias = 'apimentada'(CLIENTES)
+
+5 - Listar os nomes dos sabores de pizza
+	p SABORES.nome (SABORES)
+
+6 - Listar os nomes dos clientes e o bairro onde moram
+	p CLIENTES.nome , CLIENTES.bairro(CLIENTES)
+
+7 - Listar os nomes dos clientes que moram no bairro cidade baixa
+	p CLIENTES.nome 
+	(s CLIENTES.bairro = 'cidade baixa'(CLIENTES))
+
+8 - Listar os nomes dos clientes que moram no bairro cidade baixa e que gostam de pizza apimentada 
+	p CLIENTES.nome
+	s CLIENTES.bairro = 'cidade baixa'? CLIENTES.preferencias = 'apimentada'(CLIENTES)
+
+9 - Nomes dos clientes que fizeram pedido
+	p CLIENTES.nome
+	(s CLIENTES.codc = PEDIDOS.codc
+	(CLIENTES ? PEDIDOS))
+
+
+10 - Nomes dos clientes que fizeram pedido tamanho grande 
+	p CLIENTES.nome
+	(s CLIENTES.codc = PEDIDOS.codc ? PEDIDOS.tamanho = 'grande'
+	(CLIENTES ? PEDIDOS))
+	
+	
+11 - Nome dos clientes e o sabor da pizza que pediram
+	p CLIENTES.nome , SABORES.nome
+	(s CLIENTES.codc = PEDIDOS.codc ? SABORES.cods = PEDIDOS.cods 
+	(CLIENTES ? PEDIDOS ? SABORES))
+
+12 - Nome dos clientes que pediram pizza sabor el fuego tamanho grande  
+	p CLIENTES.nome , SABORES.nome
+	(s CLIENTES.codc = PEDIDOS.codc ? SABORES.cods = PEDIDOS.cods ? SABORES.nome = 'el fuego'
+	(CLIENTES ? PEDIDOS ? SABORES))
